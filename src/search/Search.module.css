@@ -1,0 +1,16 @@
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form>input{
+    border-color: transparent;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border:solid 1px rgb(214, 18, 18);
+    border-radius:5px;
+}
+.formBtn{
+    font-size:1.2rem;
+    outline:none;
+}
