@@ -23,6 +23,20 @@ code {
   border-radius:50px;
   border:2px solid black;
   transition: 0.1s;
+  position: relative;
+}
+.icon{
+  cursor: pointer;
+  position:absolute;
+  left:67%;
+  width: 40px;
+  height: 40px;
+  background:transparent;
+  outline:none;
+  border:none;
+}
+.icon:hover{
+  transform: scale(1.1);
 }
 .form>input:focus{
   background-color: #fff;
@@ -41,11 +55,12 @@ code {
 }
 
 .clear-Btn{
+  position:absolute;
+  left:73%;
   padding:18px 48px;
   color: rgb(12, 12, 12);
   background-color:white;
   border:none;
-  margin-left:10px;
   font-size:20px;
   transition:all 100ms ease-in-out;
 }
@@ -55,7 +70,14 @@ code {
   border-radius:50px;
   cursor: pointer;
 }
+
 /* post */
+.main{
+  width: 33.33%;
+  float: left;
+  box-sizing: border-box;
+  padding: 10px;
+}
 .container{
   display: flex;
   flex-wrap: wrap;
@@ -63,7 +85,7 @@ code {
   padding:20px 15px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   position: relative;
-  min-width:100%;
+  min-width:min-content;
 }
 .container:hover{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -118,7 +140,10 @@ code {
 /* search list*/
 .search-list{
   display:flex;
+  
+  align-items: center;
   flex-direction: column;
+  padding-bottom:20.6%;
 }
 .search-users{
   justify-content: center;
@@ -133,7 +158,18 @@ code {
 }
 .app-wrapper>h1{
   font-size:110px;
-  margin-bottom:25px;
+  margin:50px auto;
+
+}
+.nav{
+  display:flex;
+  align-items: center;
+  background-color: #7b7c7f;
+}
+.nav-items{
+  display:flex;
+  gap:100px;
+  align-items: center;
 }
 /* footer */
 .footer {

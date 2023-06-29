@@ -29,23 +29,30 @@ function App() {
        setSearch([])
       }
     } else {
-      setSearch([ ]);
+      setSearch([]);
       setError(false);
     }
     }
 
   useEffect(()=>{
       fetchData()
-    },[username])
+    },[])
 
     
     return (
       <>
       <div className="App">
+        {/* <nav className='nav'>
+          <div className='nav-items'>
+            <p>GITHUB FINDER</p>
+            <p>By Sushant</p>
+          </div>
+          
+        </nav> */}
         {notfound?(<div><p>Something went wrong,Click here to</p><button style={{cursor:"pointer"}}onClick={handleClick}>Refresh</button></div>):(
         <div className="app-wrapper"style={{ display: 'flex', flexDirection: 'column'}}>
           <h1 className='title'><AiOutlineGithub size="100px"/>GITHUB FINDER</h1>
-          <Search setSearch={setSearch}username={username} setUsername={setUsername}/>
+          <Search setSearch={setSearch} username={username} setUsername={setUsername} fetchData={fetchData}/>
           <SearchList search={search} error={error} />
         </div>)}
       </div>

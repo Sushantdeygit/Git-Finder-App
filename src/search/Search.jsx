@@ -1,6 +1,6 @@
 import {BsSearch} from 'react-icons/bs'
 
-export default function Search({setUsername,username,setSearch}){
+export default function Search({setUsername,username,setSearch,fetchData}){
    
     const handleSearch= (e) =>{
         try{
@@ -9,13 +9,18 @@ export default function Search({setUsername,username,setSearch}){
             console.log(error)
         }           
     }
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+        fetchData();
+    }
     const handleClear = () => {
         setUsername('');
+        setSearch([]);
       };
 
     return(
         <div>
-        <form className='form'>
+        <form className='form'onSubmit={handleSubmit}>
             <input
             type="text"
             value={username}
@@ -23,6 +28,9 @@ export default function Search({setUsername,username,setSearch}){
             onChange={handleSearch}
             autoFocus>
             </input>
+            {username&&(
+                <button className="icon"type="submit"><BsSearch size={26}/></button>
+            )}
             {username && (
           <button className='clear-Btn' type="button" onClick={handleClear}>Clear</button>
         )}
