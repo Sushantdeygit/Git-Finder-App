@@ -3,11 +3,15 @@ import { useState,useEffect } from 'react';
 import Search from './search/Search';
 import SearchList from './data/searchList';
 import {AiOutlineGithub} from 'react-icons/ai'
+import Loading from './Loading/Loading';
+import Footer from './footer';
+
 function App() {
   const[search,setSearch]= useState([]);
   const [username,setUsername]=useState('');
   const[error,setError]= useState(false);
   const[notfound,setnotFound]= useState(false);
+  const[ isloading,setIsLoading]= useState(false);
 
 
   const handleClick=()=>{
@@ -15,10 +19,10 @@ function App() {
   }
 
   const fetchData= async()=>{
-
+    setIsLoading(true)
     if (username.length>0) {
       try {
-        setError(false);
+        // setError(false);
         const response = await api.get(`/search/users?q=${username}`);
         setSearch(response.data.items);
         response.data.items.length===0?setError(true):setError(false)
@@ -32,12 +36,16 @@ function App() {
       setSearch([]);
       setError(false);
     }
+    setIsLoading(false);
     }
 
   useEffect(()=>{
       fetchData()
     },[])
-
+  
+  if(isloading){
+    return <Loading/>
+  }
     
     return (
       <>
@@ -55,6 +63,7 @@ function App() {
           <Search setSearch={setSearch} username={username} setUsername={setUsername} fetchData={fetchData}/>
           <SearchList search={search} error={error} />
         </div>)}
+        <Footer/>
       </div>
     </>
     );
