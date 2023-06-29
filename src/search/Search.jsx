@@ -1,5 +1,4 @@
 import {BsSearch} from 'react-icons/bs'
-
 export default function Search({setUsername,username,setSearch,fetchData}){
    
     const handleSearch= (e) =>{

@@ -1,8 +1,11 @@
 import React from 'react'
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 const Post = ({search}) => {
-  // useEffect(()=>{
-  //   AOS.init();
-  // },[search])
+  useEffect(()=>{
+    AOS.init();
+  },[search])
 
   return (
     <div>
@@ -10,7 +13,7 @@ const Post = ({search}) => {
       search.map((item)=>{
         return(
           <div className='main'>
-            <div className='container'>
+            <div data-aos="fade-down" data-aos-duration="800"data-aos-delay="300"className='container'>
               <div className='container-profile'>
               <img src={item.avatar_url} alt={item.name}></img>
                 <div className='container-head'>
