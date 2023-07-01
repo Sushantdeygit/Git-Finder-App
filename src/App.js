@@ -70,7 +70,7 @@ function App() {
         </nav>
         {notfound?(<div><p>Something went wrong,Click here to</p><button style={{cursor:"pointer"}}onClick={handleClick}>Refresh</button></div>):(
         <div className="app-wrapper"style={{ display: 'flex', flexDirection: 'column'}}>
-          <h1 data-aos="fade-down" data-aos-duration="800" className='title'><AiOutlineGithub size="100px"/>GITHUB FINDER</h1>
+          <h1 data-aos="fade-down" data-aos-duration="800" className='title'><AiOutlineGithub/>GITHUB FINDER</h1>
           <Search setSearch={setSearch} username={username} setUsername={setUsername} fetchData={fetchData}/>
           <SearchList search={search} error={error} />
         </div>)}
